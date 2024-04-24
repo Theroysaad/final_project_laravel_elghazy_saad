@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* seec 1 */
+
+.back {
+    position: fixed;
+    bottom: 2vh;
+    right: 4vw;
+    z-index: 10;    
+}
+
+.back .top {
+    height: 100px;
+    width: 100px;
+    bottom: 40px;
+    right: 0px;
+}
+
+.back .top .scroll {
+    font-size: 50px;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.button:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(181, 160, 255);
+    align-items: center;
+}
+
+.button:hover .svgIcon {
+    /* width: 20px; */
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+}
+
+.button::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: white;
+    /* transition-duration: .3s; */
+    font-size: 0px;
+}
+
+.button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    /* transform: translateY(-30px); */
+    transition-duration: 0.3s;
+}
+
+
+/*  sec 1 */
+
+.sec1-btn {
+    background-image: linear-gradient(#EE3E38, white);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.5s, color 0.5s;
+}
+
+.sec1-btn:hover {
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+.sec1-btn2 {
+    background-image: linear-gradient(white, white);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.5s, color 0.5s;
+}
+
+.sec1-btn2:hover {
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+.sec1 {
+    background-image: url(../../public/img/cowork_first_image.jpg);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.sec1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.696);
+    width: 100%;
+    top: 0;
+    height: 100%;
+}
+
+.sec1-btn {
+    width: 12vw;
+    height: 7vh;
+    border: none;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.sec1-btn2 {
+    width: 12vw;
+    height: 7vh;
+    border: white solid 1px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.sec1-h1 {
+    width: 60%;
+    z-index: 10;
+}
+
+.sec1-p {
+    width: 60%;
+    z-index: 10;
+}
+
+
+
+/*  footer */
+/* 
+footer .container {
+    padding: 15vh 0;
+}
+
+footer .container .area:nth-child(2) .div1 {
+    gap: 3vw;
+}
+
+footer .container .area:nth-child(2) .div1 ul {
+    width: 50%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .container .area:nth-child(2) .div1 ul li {
+    transition: 0.3s;
+}
+
+footer .container .area:nth-child(2) .div1 ul li i {
+    font-size: 11px;
+    padding-right: 9px;
+}
+
+footer .container .area:nth-child(2) .div1 ul li:hover {
+    padding-left: 0.5vw;
+}
+
+footer .container .area:nth-child(4) .div1 .div11 input {
+    width: 14vw;
+    height: 7vh;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    border-radius: 4px 0 0 4px;
+    background-color: transparent;
+}
+
+footer .container .area:nth-child(4) .div1 .div11 input::placeholder {
+    color: black;
+}
+
+footer .container .area:nth-child(4) .div1 .div11 i {
+    text-align: center;
+    font-size: 25px;
+    width: 3vw;
+    height: 7vh;
+    border: 1px solid black;
+    border-radius: 0 4px 4px 0;
+    padding: 1.5vh 0;
+    transition: 0.3s;
+}
+
+footer .container .area:nth-child(4) .div1 .div11 i:hover {
+    color: gray;
+}
+
+footer .container .area {
+    width: 18vw;
+}
+
+footer .container .area h3 {
+    padding-bottom: 30px;
+}
+
+footer .container .area .div1 {
+    height: 25vh;
+}
+
+footer .container .area .div1 .i1 {
+    color: white;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+footer .container .area .div1 .i1:hover {
+    background-color: white;
+}
+
+@media (max-width: 430px) {
+    footer .container {
+        padding: 3vh 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer .container .area:nth-child(2) {
+        height: 65vh;
+    }
+
+    footer .container .area:nth-child(2) .div1 {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    footer .container .area:nth-child(2) .div1 ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    footer .container .area:nth-child(3) .div1 div div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    footer .container .area:nth-child(4) .div1 .div11 {
+        display: flex;
+        align-items: center;
+    }
+
+    footer .container .area:nth-child(4) .div1 .div11 input {
+        width: 80%;
+    }
+
+    footer .container .area:nth-child(4) .div1 .div11 i {
+        width: 20%;
+    }
+
+    footer .container .area {
+        width: 100%;
+        padding: 0 5vw;
+    }
+} */
+
+/* footer  */
+
+/* about */
+.about-ketba{
+    border-radius: 50% 25% 60% 25% / 26% 55% 24% 43%;
+}
+
+/* contact us */
+
+.aboutUs-div {
+    width: 45%;
+}
+.aboutUs-div2 {
+    width: 40%;
+}
+.aboutUs-div3 {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    padding: 12px;
+}
+.aboutUs-input {
+    width: 250px;
+    height: 50px;
+    padding-inline: 20px;
+}
+.aboutUs-input::placeholder {
+
+}
+
+.aboutUs-select {
+    width: 250px;
+    padding-inline: 20px;
+}
+
+.text-aeria {
+    height: 30vh;
+}
