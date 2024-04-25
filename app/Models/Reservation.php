@@ -10,11 +10,11 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'table',
-        'startDate',
-        'endDate',
-        'startTime',
-        'endTime',
+        "name",
+        "workspaceId",
+        "dateStart",
+        "timeStart",
+        "dateEnd",
+        "timeEnd"
     ];
 }

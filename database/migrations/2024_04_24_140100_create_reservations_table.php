@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId("table_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->date("date");
+            $table->string("name");
+            $table->integer("workspaceId");
+            $table->date("dateStart");
             $table->time("timeStart");
+            $table->date("dateEnd");
             $table->time("timeEnd");
             $table->timestamps();
         });

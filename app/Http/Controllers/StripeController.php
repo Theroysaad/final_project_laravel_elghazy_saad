@@ -34,7 +34,7 @@ class StripeController extends Controller
             'cancel_url'  => route('dashboard'), // route when  failed or canceled
         ]);
 
-        return redirect()->away($session->url);
+        return redirect()->back();
 
     }
 

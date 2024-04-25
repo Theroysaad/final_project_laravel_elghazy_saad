@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="<link rel="stylesheet"
+    <link rel="stylesheet" href="<link rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />">
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha384-+RDkWWtIQ8EW+u/HSJPP6LXSCWQe6MH6Iw1pM4hbHwZgV56FtF7Ui2ezsJCpvBhh" crossorigin="anonymous">
     <title>Document</title>
@@ -17,74 +17,6 @@
 
 <body>
 
-    {{-- <footer class="md:flex md:justify-center md:items-center text-black bg-slate-100 ">
-        <div class="container mx-auto md:flex md:w-[100vw] md:justify-between sm:px-4 lg:flex justify-content-lg-evenly">
-            <div class="area">
-                <h3 class="text-black">About Us</h3>
-                <div class="div1 lg:flex lg:flex-col lg:justify-between">
-                    <p class="text-black"> <span class="text-[#EE3E38]">COLLABHUB .</span>  is the only co-working space dedicated to the unique needs of psychologits and allied health professionals</p>
-                        <div class="flex lg:justify-between gap-lg-0 gap-2 ">
-                            <i class="i1 fa-brands fa-facebook"></i>
-                            <i class="i1 fa-brands fa-google-plus"></i>
-                            <i class="i1 fa-brands fa-x-twitter"></i>
-                        <i class="i1 fa-brands fa-square-instagram"></i>
-                        <i class="i1 fa-brands fa-pinterest"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="area">
-                <h3 class="text-black">Quick Links</h3>
-                <div class="div1 lg:flex ">
-                    <ul class="lg:flex lg:flex-col lg:justify-between">
-                        <li><i class="fa-solid fa-play"></i>Home</li>
-                        <li><i class="fa-solid fa-play"></i>About Us</li>
-                        <li><i class="fa-solid fa-play"></i>Our spaces</li>
-                        <li><i class="fa-solid fa-play"></i>Company</li>
-                        <li><i class="fa-solid fa-play"></i>Contact Us</li>
-                    </ul>
-
-                    <ul class="lg:flex lg:flex-col lg:justify-between">
-                        <li><i class="fa-solid fa-play"></i>Consuling</li>
-                        <li><i class="fa-solid fa-play"></i>Finance</li>
-                        <li><i class="fa-solid fa-play"></i>Testimonials</li>
-                        <li><i class="fa-solid fa-play"></i>FAQ</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="area">
-                <h3 class="text-black">Open Hours</h3>
-                <div class="div1 lg:flex lg:flex-col lg:justify-between">
-                    <p class="text-black">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, cum!</p>
-                    <div>
-                        <div class="lg:flex lg:justify-between">
-                            <p class="m-0 text-black">Monday-Friday</p>
-                            <p class="m-0 text-black">8.00-20.00</p>
-                        </div>
-                        <div class="lg:flex lg:justify-between">
-                            <p class="m-0 text-black">Saturday</p>
-                            <p class="m-0 text-black">Closed</p>
-                        </div>
-                        <div class="lg:flex lg:justify-between">
-                            <p class="m-0 text-black">Monday-Thusday</p>
-                            <p class="m-0 text-black">Closed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="area">
-                <h3 class="text-black">Newsletter</h3>
-                <div class="div1 lg:flex lg:flex-col lg:justify-between">
-                    <p class="text-black">subscribe to our newsletter to get allour news in your inbox.. lorem ipsum
-                        dolor sit amed
-                        consectetur adipisicng elit,</p>
-                    <div class="div11 lg:flex lg:items-center">
-                        <input class="" type="email" placeholder="Email Address">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> --}}
 
     <footer class="bg-gray-900 py-12 px-16 font-[sans-serif]">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

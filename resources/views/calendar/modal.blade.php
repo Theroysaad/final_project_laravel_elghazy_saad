@@ -8,44 +8,58 @@
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Thank you for your time !!</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
-
-
-                <form method="post" class="w-full  flex flex-col gap-y-5 " action="{{ route('reservation.store') }}" >
+                <form id="main-form" method="post" class="w-full flex flex-col gap-y-5" action="/reservation/store">
                     @csrf
-                    <label for="">Table Number</label>
-                    <select name="table_id" id="">
-                        @foreach ($Tables as $Table)
-                            <option value="{{ $Table->id }}">{{ $Table->table_number }}</option>
-                        @endforeach
-                    </select>
-                    <small class="p-0">
-                        For more information about the table and its location, you can always
-                        <a href="#" class="text-blue-500 underline">contact us</a>.
-                    </small>
+                    <label for="title">Event Title</label>
+                    <input name="title" id="title" placeholder="Event Title" type="text" class="rounded-xl"
+                        required>
 
-                    <label for="">Start Day</label>
-                    <input name="date" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" id="date-start"
-                        type="date">
+                    <label for="date-start">Start Day</label>
+                    <input name="dateStart" id="date-start" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}"
+                        type="date" class="rounded-xl" required>
 
-                    <label for="">Start time</label>
-                    <input name="timeStart" step="1800" required min="12:00:00" max="22:00:00" value="13:00:00"
-                        id="time-start" type="time">
+                    <label for="time-start">Start time</label>
+                    <input name="timeStart" id="time-start" step="1800" required min="08:00:00" max="19:00:00"
+                        value="09:30:00" type="time" class="rounded-xl" required>
 
-                    {{-- <label class="d-none"  for="">end Day</label>
-                    <input class="d-none" name="dateEnd" id="date-end" type="date"> --}}
+                    <label for="date-end">End Day</label>
+                    <input name="dateEnd" id="date-end" type="date" class="rounded-xl" required>
 
-                    <label for="">end time</label>
-                    <input name="timeEnd" id="time-end" type="time">
+                    <label for="time-end">End time</label>
+                    <input name="timeEnd" id="time-end" type="time" class="rounded-xl" required>
 
-                    <button class="w-f py-3 bg-purple-950">book</button>
+                    <input type="number" name="workspaceId">
+
+
+                    <button id="submit-button"
+                        class="relative px-8 py-2 rounded-md hover:text-white bg-white isolation-auto z-10 border-2 border-[#EE3E38] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#EE3E38] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700">
+                        BOOK YOUR SPACE
+                    </button>
                 </form>
+
+                {{-- <form id="secondary-form" method="get" action="/session">
+                    @csrfhome
+                </form> --}}
 
             </div>
 
         </div>
     </div>
 </div>
+
+{{-- <script>
+    document.getElementById('submit-button').addEventListener('click', function(event) {
+        // Prevent default button behavior
+        event.preventDefault();
+
+        // Submit the main form (POST request)
+        document.getElementById('main-form').submit();
+
+        // Submit the secondary form (GET request)
+        document.getElementById('secondary-form').submit();
+    });
+</script> --}}

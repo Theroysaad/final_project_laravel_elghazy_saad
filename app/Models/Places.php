@@ -12,7 +12,8 @@ class Places extends Model
     protected $fillable = [
         "name",
         "image",
-        'price',
+        'HourPrice',
         'description',
+        'amenities',
     ];
 }
