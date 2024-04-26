@@ -114,7 +114,7 @@
                             recently a traditional boxed software company selling licenses. Yet its own business model
                             disruption is only part of the story
                         </p>
-                        <a class="inline-block" href="{{ route('workspace.index', ['workspace_id' => $place->id]) }}">
+                        <a class="inline-block" href="{{ route('workspace.index', ['place_id' => $place->id]) }}">
                             <buttonw
 
                                 class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"

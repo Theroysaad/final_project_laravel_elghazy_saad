@@ -32,8 +32,7 @@
                     <label for="time-end">End time</label>
                     <input name="timeEnd" id="time-end" type="time" class="rounded-xl" required>
 
-                    <input type="number" name="workspaceId">
-
+                    <input type="hidden" id="place_id" name="place_id">
 
                     <button id="submit-button"
                         class="relative px-8 py-2 rounded-md hover:text-white bg-white isolation-auto z-10 border-2 border-[#EE3E38] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#EE3E38] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700">
@@ -50,16 +49,10 @@
         </div>
     </div>
 </div>
-
-{{-- <script>
-    document.getElementById('submit-button').addEventListener('click', function(event) {
-        // Prevent default button behavior
-        event.preventDefault();
-
-        // Submit the main form (POST request)
-        document.getElementById('main-form').submit();
-
-        // Submit the secondary form (GET request)
-        document.getElementById('secondary-form').submit();
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        const path = window.location.pathname;
+        const placeId = path.split('/').pop();
+        document.getElementById('place_id').value = placeId;
     });
-</script> --}}
+</script>

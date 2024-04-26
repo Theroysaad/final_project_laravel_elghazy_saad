@@ -30,11 +30,10 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        
+
         $data = [
             "name" => $request->title,
-            "workspaceId" => $request->workspaceId,
+            "place_id" => $request->place_id,
             "dateStart" => $request->dateStart,
             "timeStart" => $request->timeStart,
             "dateEnd" => $request->dateEnd,
@@ -93,16 +92,16 @@ class ReservationController extends Controller
         //
     }
 
-    public function showById(int $workspaceId)
+    public function showById(int $placeId)
     {
-        $reservations = Reservation::getAllForWorkspace($workspaceId);
+        $reservations = Reservation::getAllForWorkspace($placeId);
         
         // Map reservations to the required format
         $events = $reservations->map(function (Reservation $reservation) {
             $start = $reservation->dateStart . " " . $reservation->timeStart;
             $end = $reservation->dateEnd . " " . $reservation->timeEnd;
             return [
-                "workspaceId" => $reservation->workspaceId,
+                "place_id" => $reservation->placeId,
                 "start" => $start,
                 "end" => $end,
                 "title" => $reservation->name,
@@ -113,6 +112,6 @@ class ReservationController extends Controller
         return response()->json([
             "events" => $events
         ]);
+
     }
-    
 }    

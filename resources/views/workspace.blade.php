@@ -40,7 +40,6 @@
 
                         <div class=" h-[100%] w-[100%] bg-white rounded-3xl border-none p-3" id="calendar"></div>
                         @include('calendar.modal')
-
                     </div>
                 </div>
             </div>
@@ -50,23 +49,14 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-
-            // const {
-            //     data
-            // } = await axios.get("/reservation/show")
-            // const events = data.events;
-
             const path = window.location.pathname;
-
-            // Extract the workspaceId from the URL path
-            const workspaceId = path.split('/').pop();
-
-            // Now you can use the workspaceId to make your request
+            const placeId = path.split('/').pop();
+        document.addEventListener('DOMContentLoaded', async function() {
             const {
                 data
-            } = await axios.get(`/reservation/show/${workspaceId}`);
+            } = await axios.get(`/reservation/show/${placeId}`);
             const events = data.events;
+            console.log(events);
 
             var myCalendar = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(myCalendar, {

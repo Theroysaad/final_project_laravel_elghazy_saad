@@ -21,4 +21,8 @@ class Places extends Model
     public function types(){
         return $this->belongsTo(Types::class);
     }
+
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
+    }
 }

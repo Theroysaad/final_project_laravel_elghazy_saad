@@ -11,10 +11,14 @@ class Reservation extends Model
 
     protected $fillable = [
         "name",
-        "workspaceId",
+        "place_id",
         "dateStart",
         "timeStart",
         "dateEnd",
         "timeEnd"
     ];
+
+    public function places(){
+        return $this->belongsTo(Places::class);
+    }
 }

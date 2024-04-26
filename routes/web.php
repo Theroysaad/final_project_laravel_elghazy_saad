@@ -28,7 +28,7 @@ Route::get("/place/show/{product}", [PlaceController::class, "show"])->name("pla
 
 Route::get('/' , [HomeController::class , 'index'])->name('home.index');
 
-Route::get('/workspace/{workspace_id}' , [PlaceController::class , 'space'])->name('workspace.index');
+Route::get('/workspace/{place_id}' , [PlaceController::class , 'space'])->name('workspace.index');
 
 Route::get('/reservation' , [ReservationController::class , 'index'])->name('reservation.index');
 Route::get('/about' , [HomeController::class , 'about'])->name('about');
@@ -40,8 +40,8 @@ Route::get('/contact' , [HomeController::class , 'contact'])->name('contact');
 Route::post("/reservation/store" , [ReservationController::class , "store"]);
 Route::get("/reservation/show" , [ReservationController::class , "show"]);
 
-// get the reservations by workspaceId
-Route::get("/reservation/show/{workspaceId}" , [ReservationController::class , "showById"]);
+// get the reservations by placeId
+Route::get("/reservation/show/{placeId}" , [ReservationController::class , "showById"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
