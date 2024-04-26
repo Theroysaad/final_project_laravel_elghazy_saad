@@ -114,8 +114,9 @@
                             recently a traditional boxed software company selling licenses. Yet its own business model
                             disruption is only part of the story
                         </p>
-                        <a class="inline-block" href="#">
-                            <button
+                        <a class="inline-block" href="{{ route('workspace.index', ['workspace_id' => $place->id]) }}">
+                            <buttonw
+
                                 class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button">
                                 Learn More
@@ -124,7 +125,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
                                 </svg>
-                            </button>
+                            </buttonw>
                         </a>
                     </div>
                 </div>

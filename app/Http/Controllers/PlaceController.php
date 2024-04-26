@@ -9,7 +9,9 @@ class PlaceController extends Controller
 {
     public function space()
     {
-        return view('workspace');
+        // return view('workspace');
+        $places = Places::with('types')->get();
+        return view('workspace', compact('places'));
     }
 
     public function store(Request $request)
@@ -21,9 +23,10 @@ class PlaceController extends Controller
             'amenities' => 'required',
             'HourPrice' => 'required',
             'description' => 'required',
+            'type_id' => 'required',
         ]);
 
-        // dd($request->image);
+         //dd($request->type_id);
 
         // Store the image in storage
         $image = $request->file("image");
@@ -35,13 +38,16 @@ class PlaceController extends Controller
         }
 
         // Create a new Place instance and save it to the database
+        //dd('rgdc');
         Places::create([
             'name' => $request->name,
             'image' => $imageName,
             'amenities' => $request->amenities,
             'HourPrice' => $request->HourPrice,
-            'description' => $request->description
+            'description' => $request->description,
+            'type_id' => $request->type_id
         ]);
+
 
         // Redirect back with success message
         return back()->with('success', 'Co-working space created successfully!');

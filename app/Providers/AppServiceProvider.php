@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Places;
+use App\Models\Types;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        
         $places = Places::all();
-        view()->share('places' , $places);
+        $types = Types::all();
+        view()->share(['places' => $places, 'types' => $types]);
     }
 }

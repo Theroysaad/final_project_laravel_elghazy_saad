@@ -12,6 +12,8 @@
                 <form class="mt-6" method="post" action="{{ route('place.store') }}" enctype="multipart/form-data">
                     @csrf
 
+                    <input type="hidden" id="type_id" name="type_id">
+
                     <div class="flex justify-between gap-3">
                         <span class="w-1/2">
                             <label for="name" class="block text-xs font-semibold text-gray-600 uppercase">Co-Working
@@ -20,9 +22,10 @@
                                 class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
                                 required>
                                 <option disabled selected value="">Which co-work is it </option>
-                                <option value="desks">desks</option>
-                                <option value="conference_rooms">conference rooms</option>
-                                <option value="private_offices">private offices</option>
+                                @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                                <!-- Options will be dynamically populated here -->
                             </select>
                         </span>
                     </div>
@@ -66,7 +69,7 @@
                 </form>
             </div>
         </div>
-a
+
         <section id="workspaces" class="flex flex-col gap-5 bg-slate-100 py-5 ">
             <div class="flex items-center justify-center flex-col gap-5 bg-slate-100 py-5 ">
 
@@ -82,7 +85,7 @@ a
                         <div class="p-6">
                             <h6
                                 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                                {{ $place->name }}
+                                {{ $place->name}}
                             </h6>
                             <h4
                                 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -111,9 +114,17 @@ a
         </section>
 
     </section>
-
-
-
+    <script>
+        // Add event listener to the select dropdown
+        document.getElementById('cowork').addEventListener('change', function() {
+            // Get the selected option
+            var selectedOption = this.options[this.selectedIndex];
+            // Get the value (type ID) of the selected option
+            var typeId = parseInt(selectedOption.value);
+            // Update the value of the hidden input field
+            document.getElementById('type_id').value = typeId;
+        });
+    </script>
 
 
     @include('layouts.footer')

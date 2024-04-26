@@ -93,7 +93,6 @@ class ReservationController extends Controller
         //
     }
 
-    // change by siham
     public function showById(int $workspaceId)
     {
         $reservations = Reservation::getAllForWorkspace($workspaceId);

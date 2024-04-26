@@ -7,6 +7,7 @@ use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\TypeController;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,9 @@ Route::put('/place/update/{place}' , [PlaceController::class  , 'update'])->name
 Route::get("/place/show/{product}", [PlaceController::class, "show"])->name("place.show");
 
 Route::get('/' , [HomeController::class , 'index'])->name('home.index');
-Route::get('/workspace' , [PlaceController::class , 'space'])->name('workspace.index');
+
+Route::get('/workspace/{workspace_id}' , [PlaceController::class , 'space'])->name('workspace.index');
+
 Route::get('/reservation' , [ReservationController::class , 'index'])->name('reservation.index');
 Route::get('/about' , [HomeController::class , 'about'])->name('about');
 Route::get('/session' , [StripeController::class , 'session']);
@@ -36,9 +39,9 @@ Route::get('/contact' , [HomeController::class , 'contact'])->name('contact');
 
 Route::post("/reservation/store" , [ReservationController::class , "store"]);
 Route::get("/reservation/show" , [ReservationController::class , "show"]);
-// change by siham
-Route::get("/reservation/show/{workspaceId}" , [ReservationController::class , "showById"]);
 
+// get the reservations by workspaceId
+Route::get("/reservation/show/{workspaceId}" , [ReservationController::class , "showById"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
