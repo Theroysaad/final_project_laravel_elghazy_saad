@@ -12,7 +12,7 @@
                 <form class="mt-6" method="post" action="{{ route('place.store') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <input type="hidden" id="type_id" name="type_id">
+                    <input type="hidden" id="types_id" name="types_id">
 
                     <div class="flex justify-between gap-3">
                         <span class="w-1/2">
@@ -122,7 +122,7 @@
             // Get the value (type ID) of the selected option
             var typeId = parseInt(selectedOption.value);
             // Update the value of the hidden input field
-            document.getElementById('type_id').value = typeId;
+            document.getElementById('types_id').value = typeId;
         });
     </script>
 

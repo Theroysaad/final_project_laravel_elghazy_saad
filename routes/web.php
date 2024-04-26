@@ -17,8 +17,6 @@ Route::get('/welcome', function () {
 
 Route::get('/admin' , [AdminController::class , 'index'])->name('admin.index');
 
-    
-
 Route::post('/place/store' , [PlaceController::class  , 'store'])->name("place.store");
 Route::delete('/place/delete/{place}' , [PlaceController::class  , 'destroy'])->name("place.delete");
 
@@ -28,7 +26,7 @@ Route::get("/place/show/{product}", [PlaceController::class, "show"])->name("pla
 
 Route::get('/' , [HomeController::class , 'index'])->name('home.index');
 
-Route::get('/workspace/{place_id}' , [PlaceController::class , 'space'])->name('workspace.index');
+Route::get('/workspace/{place}' , [PlaceController::class , 'space'])->name('workspace.index');
 
 Route::get('/reservation' , [ReservationController::class , 'index'])->name('reservation.index');
 Route::get('/about' , [HomeController::class , 'about'])->name('about');

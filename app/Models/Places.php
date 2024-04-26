@@ -15,7 +15,7 @@ class Places extends Model
         'HourPrice',
         'description',
         'amenities',
-        'type_id',
+        'types_id',
     ];
 
     public function types(){

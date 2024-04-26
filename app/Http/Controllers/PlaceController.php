@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
-    public function space()
+    public function space(Places $place)
     {
         // return view('workspace');
-        $places = Places::with('types')->get();
-        return view('workspace', compact('places'));
+        // $places = Places::with('types')->get();
+        return view('workspace', compact('place'));
     }
 
     public function store(Request $request)
@@ -23,10 +23,10 @@ class PlaceController extends Controller
             'amenities' => 'required',
             'HourPrice' => 'required',
             'description' => 'required',
-            'type_id' => 'required',
+            'types_id' => 'required',
         ]);
 
-         //dd($request->type_id);
+        //dd($request->type_id);
 
         // Store the image in storage
         $image = $request->file("image");
@@ -45,7 +45,7 @@ class PlaceController extends Controller
             'amenities' => $request->amenities,
             'HourPrice' => $request->HourPrice,
             'description' => $request->description,
-            'type_id' => $request->type_id
+            'types_id' => $request->types_id
         ]);
 
 
@@ -96,4 +96,5 @@ class PlaceController extends Controller
         //* redirect user  to  a specefic route 
         return back();
     }
+
 }

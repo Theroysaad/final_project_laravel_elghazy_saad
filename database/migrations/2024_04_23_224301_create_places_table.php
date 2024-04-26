@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('amenities');
             $table->integer('HourPrice');
             $table->string('description');
-            $table->foreignId("type_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId("types_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
