@@ -5,13 +5,6 @@
 
 @section('content')
     <!-- component -->
-
-
-
-    @foreach ($reservations as $reservation)
-        {{ $reservation->name }}
-    @endforeach
-
     <div class="back">
         <a href="#" id="title" class="top"><span>
                 <button class="button">
@@ -22,7 +15,7 @@
                     </svg>
                 </button>
             </span>
-        </a>
+        </a> 
     </div>
 
     <section class="">
