@@ -16,7 +16,8 @@ class Reservation extends Model
         "timeStart",
         "dateEnd",
         "timeEnd",
-        'user_id'
+        'user_id',
+        'price'
     ];
 
 /**

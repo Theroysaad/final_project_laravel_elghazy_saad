@@ -5,11 +5,6 @@
 
     <section class="py-10 flex justify-center items-center">
 
-
-
-
-
-
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white font-[sans-serif]">
                 <thead class="bg-gray-800 whitespace-nowrap">
@@ -19,6 +14,9 @@
                         </th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-white">
                             Email
+                        </th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-white">
+                            Client
                         </th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-white">
                             Start Time
@@ -45,10 +43,12 @@
                                         <tr class="even:bg-blue-50">
                                             <td class="px-6 py-4 text-sm">
                                                 {{ $reservation->place->types->name }}
-                                                {{ $reservation->place->types->name }}
                                             </td>
                                             <td class="px-6 py-4 text-sm">
-                                                {{-- {{ $reservation->user->email }} --}}
+                                                {{ $reservation->user->email }}
+                                            </td>
+                                            <td class="px-6 py-4 text-sm">
+                                                {{ $reservation->user->name }}
                                             </td>
                                             <td class="px-6 py-4 text-sm">
                                                 {{ $reservation->dateStart }}

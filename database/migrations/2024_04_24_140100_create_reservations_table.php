@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date("dateEnd");
             $table->time("timeEnd");
             $table->timestamps();
+            $table->integer("price");
         });
     }
 

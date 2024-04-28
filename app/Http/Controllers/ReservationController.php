@@ -62,7 +62,8 @@ class ReservationController extends Controller
             "dateStart" => $request->dateStart,
             "timeStart" => $request->timeStart,
             "dateEnd" => $request->dateEnd,
-            "timeEnd" => $request->timeEnd
+            "timeEnd" => $request->timeEnd,
+            'user_id' => $request->user_id
         ];
 
         Reservation::create($data);

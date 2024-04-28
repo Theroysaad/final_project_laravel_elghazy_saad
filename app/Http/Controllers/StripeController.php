@@ -20,6 +20,18 @@ class StripeController extends Controller
 
         Stripe::setApiKey(config('stripe.sk'));
 
+                $place = Places::getPlaceById($request->place_id)->first();
+        $placeHourPrice = $place->HourPrice;
+
+        $dateStart = $request->dateStart;
+        $dateEnd = $request->dateEnd;
+        $timeStart = $request->timeStart;
+        $timeEnd = $request->timeEnd;
+
+        $hours = $this->calculateHours($dateStart, $timeStart, $dateEnd, $timeEnd);
+
+        $totalAmount = $placeHourPrice * $hours;
+
         $reservation = new Reservation();
         $reservation->user_id = Auth::id();
         $reservation->place_id = $request->place_id;
@@ -28,21 +40,8 @@ class StripeController extends Controller
         $reservation->dateStart = $request->dateStart;
         $reservation->timeEnd = $request->timeEnd;
         $reservation->dateEnd = $request->dateEnd;
+        $reservation->price = $totalAmount;
         $reservation->save();
-
-        $place = Places::getPlaceById($request->place_id)->first();
-        $placeHourPrice = $place->HourPrice;
-
-        $dateStart = $reservation->dateStart;
-        $dateEnd = $reservation->dateEnd;
-        $timeStart = $reservation->timeStart;
-        $timeEnd = $reservation->timeEnd;
-
-        // Calculate the hours
-        $hours = $this->calculateHours($dateStart, $timeStart, $dateEnd, $timeEnd);
-
-        // Calculate the total amount
-        $totalAmount = $placeHourPrice * $hours;
 
         $description = 'Reservation start in ' . $reservation->dateStart . ' at ' . $reservation->timeStart . 'and ends in ' . $reservation->dateEnd . ' at ' . $reservation->timeEnd;
 
