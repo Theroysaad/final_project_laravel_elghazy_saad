@@ -15,10 +15,24 @@ class Reservation extends Model
         "dateStart",
         "timeStart",
         "dateEnd",
-        "timeEnd"
+        "timeEnd",
+        'user_id'
     ];
 
-    public function places(){
+/**
+     * Get the user that owns the reservation.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the place that owns the reservation.
+     */
+    public function place()
+    {
         return $this->belongsTo(Places::class);
     }
+
 }

@@ -8,21 +8,22 @@
             <div class="flex flex-col md:flex-row -mx-4">
                 <div class="md:flex-1 px-4">
                     <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                        <img class="w-full h-full object-cover" src="{{ asset('img/cowork_first_image.jpg') }}"
+                        <img class="w-full h-full object-cover" src="{{ asset('storage/img/' . $place->image) }}"
                             alt="Product Image">
                     </div>
-                    <div class="flex -mx-2 mb-4">
-                        <button
-                            class="relative px-8 py-2 rounded-md hover:text-white bg-white isolation-auto z-10 border-2  border-[#EE3E38] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#EE3E38] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700">
-                            BOOK YOUR SPACE
-                        </button>
 
+                    <div class="flex -mx-2 mb-4">
+                        <form action="/session" method="get">
+                            @csrf
+                            <button type="submit" class="relative px-8 py-2 rounded-md hover:text-white bg-white isolation-auto z-10 border-2 border-[#EE3E38] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#EE3E38] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700">
+                                BOOK YOUR SPACE
+                            </button>
+                        </form>
                     </div>
+                    
                 </div>
                 <div class="md:flex-1 px-4">
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">{{ $place->types->name }}</h2>
-                    
-
                     <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
                         {{ $place->description }}
                     </p>
@@ -31,6 +32,7 @@
                             <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
                             <span class="text-gray-600 dark:text-gray-300">{{ $place->HourPrice }} $</span>
                         </div>
+
                         <div>
                             <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
                             <span class="text-gray-600 dark:text-gray-300">In Stock</span>

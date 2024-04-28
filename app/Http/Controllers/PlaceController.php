@@ -26,8 +26,6 @@ class PlaceController extends Controller
             'types_id' => 'required',
         ]);
 
-        //dd($request->type_id);
-
         // Store the image in storage
         $image = $request->file("image");
         if ($image) {
@@ -48,7 +46,6 @@ class PlaceController extends Controller
             'types_id' => $request->types_id
         ]);
 
-
         // Redirect back with success message
         return back()->with('success', 'Co-working space created successfully!');
     }
@@ -61,7 +58,6 @@ class PlaceController extends Controller
 
     public function show(Places $place)
     {
-        //& we  pass  the element as a variable  in our function + compact  +  web.php  using the same name
         return view("workspace", compact("product"));
     }
 
@@ -76,7 +72,7 @@ class PlaceController extends Controller
             'description' => 'required',
         ]);
         //* use update method to edit the columns with the request received
-
+        
         $image = $request->file("image");
         if ($image) {
             $imageName = time() . "_" . $image->getClientOriginalName();
@@ -92,7 +88,7 @@ class PlaceController extends Controller
             'HourPrice' => $request->HourPrice,
             'description' => $request->description
         ]);
-
+        
         //* redirect user  to  a specefic route 
         return back();
     }

@@ -24,6 +24,7 @@ class ReservationController extends Controller
                 "end" => $end,
                 "title" => $reservation->name,
                 "color" => "#007bff",
+                
             ];
         });
         
@@ -38,7 +39,6 @@ class ReservationController extends Controller
     public function index()
     {
         $reservations = Reservation::all();
-
         return view('calendar.reservation');
     }
 
@@ -87,7 +87,7 @@ class ReservationController extends Controller
                 "color" => "#000",
             ];
         });
-
+        
         return response()->json([
             "events" => $events
         ]);
@@ -115,9 +115,11 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reservation $reservation)
+    public function delete(Reservation $reservation)
     {
         //
+        $reservation->delete();
+        return back();
     }
 
 }    

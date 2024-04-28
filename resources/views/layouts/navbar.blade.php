@@ -19,7 +19,8 @@
                     <div class="flex flex-row items-center justify-between p-4">
 
                         <div class="w-52 h-10 flex justify-center items-center">
-                            <a href="{{ route('home.index') }}"><img src="{{ asset('img/CoworkingLogo.png') }}" alt="Coworking Logo"></a>
+                            <a href="{{ route('home.index') }}"><img src="{{ asset('img/CoworkingLogo.png') }}"
+                                    alt="Coworking Logo"></a>
                         </div>
 
                         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
@@ -38,26 +39,37 @@
                         class="flex-col flex-grow hidden   md:pb-0 md:flex md:justify-end md:flex-row ">
                         <a class="px-4 py-2 mt-2 text-base text-decoration-none font-base bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                             href="{{ route('contact') }}">Contact Us</a>
-                        <select class=" border-none px-4 py-2 mt-2 text-base font-base bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+
+                        {{-- @role('client')
+                        <select
+                            class=" border-none px-4 py-2 mt-2 text-base font-base bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                             href="workspace">
                             <option value="">Work Space</option>
                             <option value="">Desks</option>
                             <option value="">Offices</option>
                             <option value="">Private rooms</option>
                         </select>
+                        @endrole --}}
+
+
                         <a class="px-4 py-2 mt-2 text-base font-base bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                             href="{{ route('about') }}">About</a>
+
+                        @role('admin')
+                            <a class="px-4 py-2 mt-2 text-base font-base bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                href="{{ route('reservations.show') }}">Reservations</a>
+                        @endrole
 
                         <div class="flex items-center justify-center mt-2">
                             @if (Route::has('login'))
                                 <nav class="flex gap-2 ">
                                     @auth
-                                    <form method="post" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button 
-                                            class="rounded-md px-3 py-2  text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                            log out
-                                        </button>
+                                        <form method="post" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button
+                                                class="rounded-md px-3 py-2  text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                                log out
+                                            </button>
                                         </form>
                                     @else
                                         <a href="{{ route('login') }}"

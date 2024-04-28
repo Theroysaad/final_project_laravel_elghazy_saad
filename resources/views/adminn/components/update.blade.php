@@ -13,7 +13,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{ route('place.update', $place) }}" method="post">
+                <form action="{{ route('place.update', $place) }}"  enctype="multipart/form-data" method="post">
                     @csrf
                     @method("PUT")
                     
@@ -21,13 +21,13 @@
                         <span class="w-1/2">
                             <label for="name" class="block text-xs font-semibold text-gray-600 uppercase">Co-Working
                                 Space</label>
-                            <select id="cowork" name="name"
+                                <select id="cowork" name="name"
                                 class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                                required>
+                                >
                                 <option disabled selected value="">Which co-work is it </option>
-                                <option value="desks">desks</option>
-                                <option value="conference_rooms">conference rooms</option>
-                                <option value="private_offices">private offices</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
                             </select>
                         </span>
                     </div>
@@ -36,16 +36,16 @@
                         class="block mt-2 text-xs font-semibold text-gray-600 uppercase">description</label>
                     <input value="{{ old('description', $place->description) }}" name="description" type="text" placeholder="insert place price"
                         class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                        required />
+                         />
                     <label for="text" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">amenities</label>
                     <input  value="{{ old('amenities', $place->amenities) }}" name="amenities" type="text" placeholder="insert place price"
-                    required 
+                     
                         class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                        required />
+                         />
                     <label for="number" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Price / hour
                     </label>
                     <input value="{{ old('HourPrice', $place->HourPrice) }}" name="HourPrice" type="number" placeholder="insert place price"
-                    required />
+                     />
 
                     <div class="pt-5">
                         <label for="uploadFile1"

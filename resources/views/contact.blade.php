@@ -4,59 +4,6 @@
 
 @section('content')
     @include('layouts.navbar')
-    {{-- <section class="contactUs">
-
-        <div class=" contactUs-general w-100 d-flex flex-column align-items-center justify-content-center p-5">
-            <div class=" contactUs-div d-flex flex-column align-items-center  p-3">
-                <div>
-                    <h1 class="">We Are Always Ready To Help You. Book An Appointment</h1>
-                </div>
-            </div>
-            <div class="">
-                <img src="./public/img/section-img.png" alt="">
-            </div>
-            <div class=" contactUs-div2  p-lg-3">
-                <p class=" text-center">Lorem ipsum,Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
-                    nesciunt
-                    veritatis
-                    necessitatibus.</p>
-            </div>
-        </div>
-
-        <div class="contactUs-div3  ">
-            <div class=" wa3 d-flex flex-column gap-4">
-                <div class=" sec11-input1 d-flex gap-3">
-                    <input class="contactUs-input" type="text" placeholder="Name">
-                    <input class="contactUs-input email" type="email" placeholder="Email">
-                </div>
-                <div class=" wa32 d-flex gap-3">
-                    <input class="contactUs-input" type="number" placeholder="Number">
-                    <select class="contactUs-select email " name="Departement" id="">
-                        <option value="...">Deppartement</option>
-                    </select>
-                </div>
-                <div class="d-flex gap-3">
-                    <select class="contactUs-select" name="Departement" id="">
-                        <option value="Doctors">Doctors</option>
-                    </select>
-                    <input class="contactUs-input" type="number" placeholder="Date">
-                </div>
-                <div class="form-floating">
-                    <textarea class=" text-aeria form-control" placeholder="Leave a comment here"
-                        id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Write You Comment Here .....</label>
-                </div>
-                <div class="d-flex flex-lg-row flex-column gap-lg-0 gap-3 justify-content-lg-between align-items-center">
-                    <button type="button" class=" py-2 btn btn-primary">Book An Appointment</button>
-                    <p class="m-0">(we Will Be Confirm By A Text Message)</p>
-                </div>
-            </div>
-            <div class="tswira">
-                <img src="{{ asset('img/about2.jpg') }}" alt="">
-            </div>
-        </div>
-    </section> --}}
-
 
     <!-- component -->
     <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />

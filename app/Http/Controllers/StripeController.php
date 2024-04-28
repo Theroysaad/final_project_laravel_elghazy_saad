@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Places;
+use App\Models\Reservation;
+use App\Models\Types;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
@@ -12,8 +16,11 @@ class StripeController extends Controller
 
     public function session(Request $request) {
 
-        Stripe::setApiKey(config('stripe.sk'));
+        // 
 
+        
+
+        Stripe::setApiKey(config('stripe.sk'));
         $session = Session::create([
             'line_items'  => [
                 [
@@ -25,18 +32,19 @@ class StripeController extends Controller
                         ],
                         'unit_amount'  => 6900,
                     ],
-                    'quantity'   => 1,
+                    'quantity'   => 2,
                 ],
 
             ],
             'mode'        => 'payment', // the mode  of payment
-            'success_url' => route('success'), // route when success 
-            'cancel_url'  => route('dashboard'), // route when  failed or canceled
+            'success_url' => route('home.index'), // route when success 
+            'cancel_url'  => route('workspace.index'), // route when  failed or canceled
         ]);
 
-        return redirect()->back();
-
+        return redirect()->away($session->url);
     }
+
+    
 
     public function success() {
         return back() ; 

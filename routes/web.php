@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PlaceController;
@@ -14,41 +15,41 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/admin' , [AdminController::class , 'index'])->name('admin.index');
-
-Route::post('/place/store' , [PlaceController::class  , 'store'])->name("place.store");
-Route::delete('/place/delete/{place}' , [PlaceController::class  , 'destroy'])->name("place.delete");
-
-Route::put('/place/update/{place}' , [PlaceController::class  , 'update'])->name("place.update");
-
-Route::get("/place/show/{product}", [PlaceController::class, "show"])->name("place.show");
-
-Route::get('/' , [HomeController::class , 'index'])->name('home.index');
-
-Route::get('/workspace/{place}' , [PlaceController::class , 'space'])->name('workspace.index');
-
-Route::get('/reservation' , [ReservationController::class , 'index'])->name('reservation.index');
-Route::get('/about' , [HomeController::class , 'about'])->name('about');
-Route::get('/session' , [StripeController::class , 'session']);
-Route::get('/success' , [StripeController::class , 'success'])->name('success');
-Route::get('/contact' , [HomeController::class , 'contact'])->name('contact');
+Route::get('/workspace/{place}', [PlaceController::class, 'space'])->name('workspace.index');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/session', [StripeController::class, 'session'])->name('session');
+Route::get('/success', [StripeController::class, 'success'])->name('success');
 
 
-Route::post("/reservation/store" , [ReservationController::class , "store"]);
-Route::get("/reservation/show" , [ReservationController::class , "show"]);
-
-// get the reservations by placeId
-Route::get("/reservation/show/{placeId}" , [ReservationController::class , "showById"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // contact us
+    Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+    // reservation
+    Route::post("/reservation/store", [ReservationController::class, "store"]);
+    Route::get("/reservation/show", [ReservationController::class, "show"])->middleware(['role:admin']); ///
+    Route::get("/reservation/show/{placeId}", [ReservationController::class, "showById"]);
+    Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::get('/reservations/show', [AdminController::class, 'reservationShow'])->name('reservations.show')->middleware(['role:admin']);
+    Route::delete('/reservations/delete/{reservation}', [ReservationController::class, 'delete'])->name("reservations.delete");
+
+    // places
+    Route::post('/place/store', [PlaceController::class, 'store'])->name("place.store");
+    Route::delete('/place/delete/{place}', [PlaceController::class, 'destroy'])->name("place.delete");
+    Route::put('/place/update/{place}', [PlaceController::class, 'update'])->name("place.update");
+    Route::get("/place/show/{product}", [PlaceController::class, "show"])->name("place.show");
+
+    // admin
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware(['role:admin']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

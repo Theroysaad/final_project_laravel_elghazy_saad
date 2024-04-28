@@ -19,6 +19,7 @@
                         required>
 
                     <label for="date-start">Start Day</label>
+                    
                     <input name="dateStart" id="date-start" min="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}"
                         type="date" class="rounded-xl" required>
 

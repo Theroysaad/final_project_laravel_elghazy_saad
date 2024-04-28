@@ -23,7 +23,7 @@
                                 required>
                                 <option disabled selected value="">Which co-work is it </option>
                                 @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach
                                 <!-- Options will be dynamically populated here -->
                             </select>
@@ -85,33 +85,63 @@
                         <div class="p-6">
                             <h6
                                 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                                {{ $place->name}}
+                                {{ $place->types->name }}
                             </h6>
                             <h4
                                 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                Lyft launching cross-platform service this week
+                                {{ $place->description }}
                             </h4>
                             <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                                Like so many organizations these days, Autodesk is a company in transition. It was until
-                                recently a traditional boxed software company selling licenses. Yet its own business model
-                                disruption is only part of the story
+                                {{ $place->amenities }}
                             </p>
-                            <form action="{{ route('place.delete', $place) }}" method="post">
+                            <form class="lg:pt-10" action="{{ route('place.delete', $place) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button>Delete</button>
+                                <button class="border px-5 py-3  hover:bg-[#ee3e38a1] rounded-lg">Delete</button>
                             </form>
 
-                            <button>update</button>
-
-                            @include('adminn.components.update')
-
+                            {{-- @include('adminn.components.update') --}}
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </section>
+
+        @foreach ($users as $user)
+            <p>{{ $user->name }}</p>
+        @endforeach
+
+        {{-- @foreach ($places as $place)
+            <!-- Loop through places -->
+            <p>{{ $place->name }}</p>
+
+        @endforeach --}}
+
+        {{-- @foreach ($types as $type)
+            <!-- Loop through types -->
+            <p>{{ $type->name }}</p>
+        @endforeach --}}
+
+
+
+        <h1>User Details</h1>
+
+        <p>Name: {{ $user->name }}</p>
+        <p>Email: {{ $user->email }}</p>
+        <!-- Add more user details as needed -->
+
+        <h2>Reservations</h2>
+
+        @if ($reservations->count() > 0)
+            <ul>
+                @foreach ($reservations as $reservation)
+                    <li>{{ $reservation->name }} - {{ $reservation->place_id }} - {{ $reservation->dateStart }} -
+                        {{ $reservation->timeStart }}</li>
+                @endforeach
+            </ul>
+        @else
+            <p>No reservations found for this user.</p>
+        @endif
 
     </section>
     <script>

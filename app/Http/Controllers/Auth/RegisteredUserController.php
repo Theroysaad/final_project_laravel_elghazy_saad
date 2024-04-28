@@ -47,4 +47,31 @@ class RegisteredUserController extends Controller
 
         return redirect(route('dashboard', absolute: false));
     }
+
+
+    // public function showReservations($userId)
+    // {
+    //     // Find the user by ID
+    //     $user = User::findOrFail($userId);
+
+    //     // Get the reservations for the user
+    //     $reservations = $user->reservations;
+
+    //     // Return a view with the reservations
+    //     return view('reservations.index', compact('reservations'));
+    // }
+
+    public function show($id)
+    {
+        // Find the user by ID
+        $user = User::findOrFail($id);
+
+        // Load the user's reservations
+        $reservations = $user->reservations;
+
+        // Pass the user and reservations to the view
+        return view('users.show', compact('user', 'reservations'));
+    }
+
+
 }
