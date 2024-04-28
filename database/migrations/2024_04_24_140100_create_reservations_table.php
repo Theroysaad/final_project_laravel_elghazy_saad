@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->foreignId("place_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->date("dateStart");
             $table->time("timeStart");
             $table->date("dateEnd");

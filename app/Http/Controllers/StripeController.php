@@ -20,7 +20,7 @@ class StripeController extends Controller
         Stripe::setApiKey(config('stripe.sk'));
 
         $reservation = new Reservation();
-        //$reservation->user_id = Auth::id();
+        $reservation->user_id = Auth::id();
         $reservation->place_id = $request->place_id;
         $reservation->name = $request->title;
         $reservation->timeStart = $request->timeStart;
@@ -28,6 +28,7 @@ class StripeController extends Controller
         $reservation->timeEnd = $request->timeEnd;
         $reservation->dateEnd = $request->dateEnd;
         $reservation->save();
+        $description = 'Reservation start in ' . $reservation->dateStart . ' at ' . $reservation->timeStart . 'and ends in ' . $reservation->dateEnd . ' at ' . $reservation->timeEnd;
 
         $session = Session::create([
             'line_items'  => [
@@ -36,7 +37,7 @@ class StripeController extends Controller
                         'currency'     => 'usd',
                         'product_data' => [
                             "name" => $reservation->name,
-                            "description" => "Reservation"
+                            "description" => $description
                         ],
                         'unit_amount'  => 6900,
                     ],
