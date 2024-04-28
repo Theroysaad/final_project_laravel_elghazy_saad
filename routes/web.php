@@ -31,14 +31,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
-// Route::get('/contact', function () {
-//     Mail::raw('This is a test email address', function($message) {
-//         $message->to('test@example.com')->subject('Testing ...');
-//     });
-//     dd('email sent');
-// });
 Route::post('/contact/store', [ContactController::class, 'store']);
-
 
 Route::middleware('auth')->group(function () {
     // contact us

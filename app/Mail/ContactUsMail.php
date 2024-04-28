@@ -40,6 +40,7 @@ class ContactUsMail extends Mailable
                     ->subject('Contact Us Mail')
                     ->view('emails.contact-message');
     }
+
     /**
      * Get the message envelope.
      */
