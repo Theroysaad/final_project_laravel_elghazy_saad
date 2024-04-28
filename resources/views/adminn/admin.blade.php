@@ -99,36 +99,12 @@
                                 @method('DELETE')
                                 <button class="border px-5 py-3  hover:bg-[#ee3e38a1] rounded-lg">Delete</button>
                             </form>
-
                             {{-- @include('adminn.components.update') --}}
                         </div>
                     </div>
                 @endforeach
             </div>
         </section>
-
-        @foreach ($users as $user)
-            <p>{{ $user->name }}</p>
-        @endforeach
-
-
-        <h1>User Details</h1>
-
-        <p>Name: {{ $user->name }}</p>
-        <p>Email: {{ $user->email }}</p>
-
-        <h2>Reservations</h2>
-
-        @if ($reservations->count() > 0)
-            <ul>
-                @foreach ($reservations as $reservation)
-                    <li>{{ $reservation->name }} - {{ $reservation->place_id }} - {{ $reservation->dateStart }} -
-                        {{ $reservation->timeStart }}</li>
-                @endforeach
-            </ul>
-        @else
-            <p>No reservations found for this user.</p>
-        @endif
 
     </section>
     <script>
