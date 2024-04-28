@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Places;
 use App\Models\Reservation;
-use App\Models\Types;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use DateTime;
+use DateInterval;
 
 class StripeController extends Controller
 {
-    //
+
 
     public function session(Request $request)
     {
@@ -28,6 +29,21 @@ class StripeController extends Controller
         $reservation->timeEnd = $request->timeEnd;
         $reservation->dateEnd = $request->dateEnd;
         $reservation->save();
+
+        $place = Places::getPlaceById($request->place_id)->first();
+        $placeHourPrice = $place->HourPrice;
+
+        $dateStart = $reservation->dateStart;
+        $dateEnd = $reservation->dateEnd;
+        $timeStart = $reservation->timeStart;
+        $timeEnd = $reservation->timeEnd;
+
+        // Calculate the hours
+        $hours = $this->calculateHours($dateStart, $timeStart, $dateEnd, $timeEnd);
+
+        // Calculate the total amount
+        $totalAmount = $placeHourPrice * $hours;
+
         $description = 'Reservation start in ' . $reservation->dateStart . ' at ' . $reservation->timeStart . 'and ends in ' . $reservation->dateEnd . ' at ' . $reservation->timeEnd;
 
         $session = Session::create([
@@ -39,7 +55,7 @@ class StripeController extends Controller
                             "name" => $reservation->name,
                             "description" => $description
                         ],
-                        'unit_amount'  => 6900,
+                        'unit_amount'  => $totalAmount * 100,
                     ],
                     'quantity' => 1,
                 ],
@@ -52,4 +68,32 @@ class StripeController extends Controller
 
         return redirect()->away($session->url);
     }
+
+
+    function calculateHours($startDate, $startTime, $endDate, $endTime) {
+        $startDateTime = new DateTime("$startDate $startTime");
+        $endDateTime = new DateTime("$endDate $endTime");
+    
+        $totalHours = 0;
+    
+        while ($startDateTime < $endDateTime) {
+            $workingStart = clone $startDateTime;
+            $workingStart->setTime(9, 0);
+            $workingEnd = clone $startDateTime;
+            $workingEnd->setTime(19, 0);
+    
+            if ($workingStart > $endDateTime) {
+                break;
+            }
+    
+            $hours = min(10, ($workingEnd->getTimestamp() - max($startDateTime->getTimestamp(), $workingStart->getTimestamp())) / 3600);
+    
+            $totalHours += $hours;
+    
+            $startDateTime->add(new DateInterval('P1D'));
+        }
+    
+        return $totalHours;
+    }
+    
 }
