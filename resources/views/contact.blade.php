@@ -31,87 +31,85 @@
                             GET IN TOUCH WITH US
                         </h2>
                         <p class="text-base text-body-color leading-relaxed mb-9">
-                            <p>If you have any questions, feedback, or would like to inquire about our coworking spaces, please feel free to get in touch with us. We value your input and are here to assist you in any way we can.</p>
+                        <p>If you have any questions, feedback, or would like to inquire about our coworking spaces, please
+                            feel free to get in touch with us. We value your input and are here to assist you in any way we
+                            can.</p>
 
-                            <p>Reach out to us via email at <strong>info@collabhub.com</strong> or give us a call at <strong>+212 122 45 44 99</strong>. You can also visit us in person at <strong>123 Collabhub, ain sbaa , casablanca , Morocco</strong>.</p>
-                        
-                            <p>We are committed to providing exceptional service and ensuring that your coworking experience exceeds your expectations. We look forward to hearing from you!</p>
+                        <p>Reach out to us via email at <strong>info@collabhub.com</strong> or give us a call at
+                            <strong>+212 122 45 44 99</strong>. You can also visit us in person at <strong>123 Collabhub,
+                                Ain Sbaa, Casablanca, Morocco</strong>.</p>
+
+                        <p>We are committed to providing exceptional service and ensuring that your coworking experience
+                            exceeds your expectations. We look forward to hearing from you!</p>
                         </p>
 
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
                     <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-                        <form>
+                        <form method="post" action="/contact/store">
+                            @csrf
                             <div class="mb-6">
-                                <input type="text" placeholder="Your Name"
-                                    class="
-                        w-full
-                        rounded
-                        py-3
-                        px-[14px]
-                        text-body-color text-base
-                        border border-[f0f0f0]
-                        outline-none
-                        focus-visible:shadow-none
-                        focus:border-[#EE3E38]
-                        " />
+                                <input type="text" placeholder="Your Name" name="name"
+                                    class="w-full rounded py-3 px-[14px]
+                                    text-body-color text-base
+                                    border border-[f0f0f0]
+                                    outline-none
+                                    focus-visible:shadow-none
+                                    focus:border-[#EE3E38]
+                                    " />
                             </div>
                             <div class="mb-6">
-                                <input type="email" placeholder="Your Email"
-                                    class="
-                        w-full
-                        rounded
-                        py-3
-                        px-[14px]
-                        text-body-color text-base
-                        border border-[f0f0f0]
-                        outline-none
-                        focus-visible:shadow-none
-                        focus:border-[#EE3E38]
-                        " />
+                                <input type="email" name="email" placeholder="Your Email"
+                                    class=" w-full
+                                    rounded
+                                    py-3
+                                    px-[14px]
+                                    text-body-color text-base
+                                    border border-[f0f0f0]
+                                    outline-none
+                                    focus-visible:shadow-none
+                                    focus:border-[#EE3E38]
+                                    " />
                             </div>
                             <div class="mb-6">
-                                <input type="text" placeholder="Your Phone"
-                                    class="
-                        w-full
-                        rounded
-                        py-3
-                        px-[14px]
-                        text-body-color text-base
-                        border border-[f0f0f0]
-                        outline-none
-                        focus-visible:shadow-none
-                        focus:border-primary
-                        " />
+                                <input type="text" name="phoneNumber" placeholder="Your Phone"
+                                    class="w-full
+                                    rounded
+                                    py-3
+                                    px-[14px]
+                                    text-body-color text-base
+                                    border border-[f0f0f0]
+                                    outline-none
+                                    focus-visible:shadow-none
+                                    focus:border-primary
+                                    " />
                             </div>
                             <div class="mb-6">
-                                <textarea rows="6" placeholder="Your Message"
-                                    class="
-                        w-full
-                        rounded
-                        py-3
-                        px-[14px]
-                        text-body-color text-base
-                        border border-[f0f0f0]
-                        resize-none
-                        outline-none
-                        focus-visible:shadow-none
-                        focus:border-primary
-                        "></textarea>
+                                <textarea rows="6" name="message" placeholder="Your Message"
+                                    class="w-full
+                                    rounded
+                                    py-3
+                                    px-[14px]
+                                    text-body-color text-base
+                                    border border-[f0f0f0]
+                                    resize-none
+                                    outline-none
+                                    focus-visible:shadow-none
+                                    focus:border-primary
+                                    "></textarea>
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="
-                        w-full
-                        text-white
-                        bg-[#EE3E38]
-                        rounded
-                        border border-[#EE3E38]
-                        p-3
-                        transition
-                        hover:bg-opacity-90
-                        ">
+                                    class="w-full
+                                    text-white
+                                    bg-[#EE3E38]
+                                    rounded
+                                    border border-[#EE3E38]
+                                    p-3
+                                    transition
+                                    hover:bg-opacity-90
+                                    ">
                                     Send Message
                                 </button>
                             </div>

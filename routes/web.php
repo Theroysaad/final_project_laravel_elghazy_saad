@@ -10,6 +10,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\TypeController;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
@@ -28,9 +29,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
+// Route::get('/contact', function () {
+//     Mail::raw('This is a test email address', function($message) {
+//         $message->to('test@example.com')->subject('Testing ...');
+//     });
+//     dd('email sent');
+// });
+Route::post('/contact/store', [ContactController::class, 'store']);
+
+
 Route::middleware('auth')->group(function () {
     // contact us
-    Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
     // reservation
     Route::post("/reservation/store", [ReservationController::class, "store"]);
     Route::get("/reservation/show", [ReservationController::class, "show"])->middleware(['role:admin']); ///
