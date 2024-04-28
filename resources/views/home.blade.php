@@ -6,11 +6,11 @@
 @section('content')
     <!-- component -->
 
-    
 
-@foreach ($reservations as $reservation)
-    {{ $reservation->name }}
-@endforeach
+
+    @foreach ($reservations as $reservation)
+        {{ $reservation->name }}
+    @endforeach
 
     <div class="back">
         <a href="#" id="title" class="top"><span>
@@ -85,17 +85,17 @@
                                     stroke-linecap="round"></path>
                             </svg>
                         </span>
-                        <span
+                        <a href="{{ route('about') }}">
+                            <span
                             class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">Discover
                             More About</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
         {{-- section 3 --}}
         <section id="workspaces" class="flex flex-col gap-5 bg-slate-100 py-5 ">
-
-
 
             <!-- component -->
             <div class="flex items-center justify-center flex-col gap-5 bg-slate-100 py-5 lg:mr-[20vw]">
@@ -126,7 +126,7 @@
                                 <buttonw
                                     class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                     type="button">
-                                    Learn More
+                                    Book your space
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
                                         <path stroke-linecap="round" stroke-linejoin="round"

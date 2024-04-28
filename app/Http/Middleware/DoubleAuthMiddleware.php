@@ -35,7 +35,7 @@ class DoubleAuthMiddleware
 
             $user->auth_validate = true;
             $user->save();
-            return redirect()->route("dashboard");
+            return redirect()->route("home.index");
         } else {
             return back();
         }

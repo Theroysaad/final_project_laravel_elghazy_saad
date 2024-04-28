@@ -12,10 +12,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
-                <form id="main-form" method="post" class="w-full flex flex-col gap-y-5" action="/reservation/store">
+                <form id="main-form" method="post" class="w-full flex flex-col gap-y-5" action="/stripe/payment">
                     @csrf
-                    <label for="title">Event Title</label>
-                    <input name="title" id="title" placeholder="Event Title" type="text" class="rounded-xl"
+                    <label for="title">Reservation</label>
+                    <input name="title" id="title" placeholder="Reservation" type="text" class="rounded-xl"
                         required>
 
                     <label for="date-start">Start Day</label>

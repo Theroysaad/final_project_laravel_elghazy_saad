@@ -20,7 +20,7 @@
 
     <footer class="bg-gray-900 py-12 px-16 font-[sans-serif]">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
+            {{-- <div>
                 <h2 class="text-white text-lg font-bold mb-4">Quick Links</h2>
                 <ul class="space-y-3">
                     <li>
@@ -36,16 +36,16 @@
                             class="text-gray-400 hover:text-white text-base transition-all">Careers</a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
             <div>
                 <h2 class="text-white text-lg font-bold mb-4">Follow Us</h2>
                 <ul class="space-y-3">
                     <li>
-                        <a href="javascript:void(0)"
+                        <a href="https://github.com/Theroysaad  "
                             class="text-gray-400 hover:text-white text-base transition-all">Github</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"
+                        <a href="https://www.linkedin.com/in/saad-el-ghazy-7b29952b6/"
                             class="text-gray-400 hover:text-white text-base transition-all">linkedin</a>
                     </li>
                     <li>
@@ -58,21 +58,21 @@
                 <h2 class="text-white text-lg font-bold mb-4">Company</h2>
                 <ul class="space-y-3">
                     <li>
-                        <a href="javascript:void(0)"
+                        <a href="{{ route('about') }}"
                             class="text-gray-400 hover:text-white text-base transition-all">About</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"
-                            class="text-gray-400 hover:text-white text-base transition-all">Privacy Policy</a>
+                        <a href="{{ route('contact') }}"
+                            class="text-gray-400 hover:text-white text-base transition-all">Contact Us</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"
-                            class="text-gray-400 hover:text-white text-base transition-all">Terms &amp; Conditions</a>
+                        <a href=""
+                            class="text-gray-400 hover:text-white text-base transition-all">workspaces</a>
                     </li>
                 </ul>
             </div>
             <div class="flex items-center lg:justify-center">
-                <a href='javascript:void(0)'><img src="{{ asset('img/collabhub-high-resolution-logo-white-transparent.png') }}" alt="logo"
+                <a href='{{ route('home.index') }}'><img src="{{ asset('img/collabhub-high-resolution-logo-white-transparent.png') }}" alt="logo"
                         class='w-60' /></a>
             </div>
         </div>

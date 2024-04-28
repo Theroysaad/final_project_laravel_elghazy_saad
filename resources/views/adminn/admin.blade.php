@@ -111,24 +111,11 @@
             <p>{{ $user->name }}</p>
         @endforeach
 
-        {{-- @foreach ($places as $place)
-            <!-- Loop through places -->
-            <p>{{ $place->name }}</p>
-
-        @endforeach --}}
-
-        {{-- @foreach ($types as $type)
-            <!-- Loop through types -->
-            <p>{{ $type->name }}</p>
-        @endforeach --}}
-
-
 
         <h1>User Details</h1>
 
         <p>Name: {{ $user->name }}</p>
         <p>Email: {{ $user->email }}</p>
-        <!-- Add more user details as needed -->
 
         <h2>Reservations</h2>
 
