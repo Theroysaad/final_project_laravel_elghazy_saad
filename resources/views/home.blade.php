@@ -15,7 +15,7 @@
                     </svg>
                 </button>
             </span>
-        </a> 
+        </a>
     </div>
 
     <section class="">
@@ -80,8 +80,8 @@
                         </span>
                         <a href="{{ route('about') }}">
                             <span
-                            class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">Discover
-                            More About</span>
+                                class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">Discover
+                                More About</span>
                         </a>
                     </div>
                 </div>
@@ -112,7 +112,6 @@
                             </h4>
                             <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                                 {{ $place->amenities}}
-
                             </p>
                             <a class="inline-block" href="{{ route('workspace.index', $place) }}">
                                 <buttonw
@@ -139,17 +138,18 @@
                     <div class="p-6">
                         <h6
                             class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                            startups
+                            PRIVATE OFFICES
                         </h6>
                         <h4
                             class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                            Lyft launching cross-platform service this week
+                            - High-speed internet access
+                            - Printing, scanning, and photocopying services
                         </h4>
                         <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                            Like so many organizations these days, Autodesk is a company in
-                            transition. It was until recently a traditional boxed software company
-                            selling licenses. Yet its own business model disruption is only part of
-                            the story
+                            Discover our modern private offices, designed to elevate your work experience. With sleek and
+                            functional spaces, you'll find the perfect environment to focus, collaborate, and thrive.
+                            Whether you're a freelancer, startup, or established business, our private offices offer the
+                            flexibility and amenities you need to succeed.
                         </p>
                         <a class="inline-block" href="#">
                             <button
@@ -182,25 +182,26 @@
                     <div class="p-6">
                         <h6
                             class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                            startups
+                            DESKS
                         </h6>
                         <h4
                             class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                            Lyft launching cross-platform service this week
+                            - Ergonomic Design 
+                            - High-Speed Internet
                         </h4>
                         <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                            Like so many organizations these days, Autodesk is a company in
-                            transition. It was until recently a traditional boxed software company
-                            selling licenses. Yet its own business model disruption is only part of
-                            the story
+                            Explore our versatile desk spaces designed to fuel your productivity and creativity. Whether
+                            you're a solo entrepreneur, freelancer, or remote worker, our ergonomic desks provide the ideal
+                            foundation for your workday. With ample space and thoughtful amenities, you'll find the
+                            inspiration you need to bring your projects to life.
                         </p>
                         <a class="inline-block" href="#">
                             <button
                                 class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                 type="button">
                                 Learn More
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" aria-hidden="true" class="h-4 w-4">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
                                 </svg>
